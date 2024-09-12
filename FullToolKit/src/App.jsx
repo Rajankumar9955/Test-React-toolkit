@@ -1,6 +1,7 @@
 import { BrowserRouter,Route,Routes, } from "react-router-dom";
 import Layout from "./Layout";
 import IncrementDecrement from "./IncrementDecrement";
+import ColorChange from "./ColorChange";
 
 
 const App=()=>{
@@ -10,6 +11,7 @@ const App=()=>{
              <Routes>
                     <Route path="/" element={<Layout/>}>
                     <Route path="incdec" element={<IncrementDecrement/>}/>
+                    <Route path="colorchange" element={<ColorChange/>}/>
                     
                     </Route>
              </Routes>
