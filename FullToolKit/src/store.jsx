@@ -3,11 +3,12 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import CntReducer from "./CounterSlice"
-import BgColorChange from "./ColorChangeSlice"
+import ChangeBgColor from "./CounterSlice"
 const store=configureStore({
         reducer:{
             mycounter:CntReducer,
-            bgchange:BgColorChange
+            bgcolor:ChangeBgColor,
+           
         },
        
 })
