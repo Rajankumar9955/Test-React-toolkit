@@ -11,12 +11,13 @@ const [val,setval]=useState("")
 
   return(
     <>
-    <div align="center">
-        <h1>Change Color whatever you want!</h1>
-        Enter Color: <input type="text" value={val} onChange={(e)=>{setval(e.target.value)}} />
+    <div align="center"   style={{marginTop:"20px"}}>
+        <h1>Change the Color's whatever you want!</h1>
+        Enter Color : <input type="text" value={val} onChange={(e)=>{setval(e.target.value)}} />
         <button onClick={()=>{dispatch(changecolor(val))}}>Change!</button>
+        <hr />
         <div style={{height:"400px", width:"400px",border:"2px solid black",backgroundColor:bgcolor}}>
-   {bgcolor}
+   {/* {bgcolor} */}
         </div>
     </div>
     
