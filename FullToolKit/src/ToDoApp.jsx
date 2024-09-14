@@ -16,10 +16,12 @@ const ToDoApp=()=>{
     const delTask=(id)=>{
         mydis(recDelete(id))
     }
+
     const taskComp=(id)=>{
         mydis(taskComplete(id))
     }
-    const taskUncomp=(id)=>{
+
+    const taskUnComp=(id)=>{
         mydis(taskUnComplete(id))
     }
 
@@ -44,8 +46,11 @@ const ToDoApp=()=>{
                    </td>
                    <td><button onClick={()=>{delTask(key.id)}}>Delete</button></td>
                    <td>
-                    <button onClick={()=>{taskUncomp(key.id)}}>UnComplete</button>
-                    <button onClick={()=>{taskComp(key.id)}}>Complete</button>
+                    {key.status?(
+                    <button onClick={()=>{taskUnComp(key.id)}}>UnComplete</button>
+                    ):(
+                        <button onClick={()=>{taskComp(key.id)}}>Complete</button>
+                    )}
                    </td>
                    <td>
                     <button onClick={()=>{dataEdit(key.id,key.data)}}>Edit</button>

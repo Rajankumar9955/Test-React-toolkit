@@ -48,7 +48,7 @@ const CouterSlice=createSlice({
             {
                 if(state.task[i].id==action.payload)
                 {
-                    state.task[i].state=false;
+                    state.task[i].status=false;
                 }
             }
         },
