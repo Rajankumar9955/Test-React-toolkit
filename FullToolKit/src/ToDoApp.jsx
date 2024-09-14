@@ -1,10 +1,12 @@
 
 import { useSelector,useDispatch } from "react-redux";
 import { useState } from "react";
-import  {addTask, recDelete} from "./CounterSlice"
+import  {addTask, recDelete,taskComplete,taskUnComplete,editDataSave} from "./CounterSlice"
 
 const ToDoApp=()=>{
     const [txtval,setTxtval]=useState("");
+    const [edBtn,setEdbtn]=useState(true)
+    const [edId,setEdId]=useState("")
     const mydata=useSelector((state)=>state.todo.task)
     const mydis=useDispatch();
 
@@ -14,6 +16,23 @@ const ToDoApp=()=>{
     const delTask=(id)=>{
         mydis(recDelete(id))
     }
+    const taskComp=(id)=>{
+        mydis(taskComplete(id))
+    }
+    const tastUncomp=(id)=>{
+        mydis(taskUnComplete(id))
+    }
+
+    const dataEdit=(id,data)=>{
+        setTxtval(data)
+        setEdbtn(false)
+        setEdId(id)
+    }
+    const editSave=()=>{
+        mydis(editDataSave({id:edId,data:txtval}))
+        setEdbtn(true)
+        setTxtval("")
+    }
     const ans=mydata.map((key)=>{
         sno++;
         return(
@@ -21,9 +40,19 @@ const ToDoApp=()=>{
               <tr>
                    <td>{sno}</td>
                    <td>
-                      {key.data}
+                      {key.status ? <span style={{color:"red",textDecoration:"line-through"}}>{key.data}</span>:key.data}
                    </td>
                    <td><button onClick={()=>{delTask(key.id)}}>Delete</button></td>
+                   <td>
+                    {key.status?(
+                         <button onClick={()=>{tastUncomp(id)}}>Uncomplete</button>
+                    ):(
+                        <button onClick={()=>{taskComp(id)}}>Complete</button>
+                    )}
+                   </td>
+                   <td>
+                    <button onClick={()=>{dataEdit(key.id,key.data)}}>Edit</button>
+                   </td>
               </tr>
             </>
         )

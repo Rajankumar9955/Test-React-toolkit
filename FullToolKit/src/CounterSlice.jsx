@@ -35,11 +35,36 @@ const CouterSlice=createSlice({
            state.task=state.task.filter(item=>item.id!=action.payload)
         },
         taskComplete:(state,action)=>{
-            
+            for(var i=0;i<state.task.length; i++)
+            {
+                if(state.task[i].id==action.payload)
+                {
+                    state.task[i].status=true
+                }
+            }
+        },
+        taskUnComplete:(state,action)=>{
+            for(var i=0; i<state.task.length; i++)
+            {
+                if(state.task[i].id==action.payload)
+                {
+                    state.task[i].state=false;
+                }
+            }
+        },
+       editDataSave:(state,action)=>{
+        for(var i=0; i<state.task.length; i++)
+        {
+            if(state.task[i].id==action.payload.id)
+            {
+                state.task[i].data=action.payload.data;
+            }
         }
+       }
+
     }
 
     
 })
 export default CouterSlice.reducer;
-export const {increment,decrement,changecolor,addTask,recDelete}=CouterSlice.actions;
+export const {increment,decrement,changecolor,addTask,recDelete,taskComplete,taskUnComplete,editDataSave}=CouterSlice.actions;
