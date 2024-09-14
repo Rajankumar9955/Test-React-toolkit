@@ -19,7 +19,7 @@ const ToDoApp=()=>{
     const taskComp=(id)=>{
         mydis(taskComplete(id))
     }
-    const tastUncomp=(id)=>{
+    const taskUncomp=(id)=>{
         mydis(taskUnComplete(id))
     }
 
@@ -44,11 +44,8 @@ const ToDoApp=()=>{
                    </td>
                    <td><button onClick={()=>{delTask(key.id)}}>Delete</button></td>
                    <td>
-                    {key.status?(
-                         <button onClick={()=>{tastUncomp(id)}}>Uncomplete</button>
-                    ):(
-                        <button onClick={()=>{taskComp(id)}}>Complete</button>
-                    )}
+                    <button onClick={()=>{taskUncomp(key.id)}}>UnComplete</button>
+                    <button onClick={()=>{taskComp(key.id)}}>Complete</button>
                    </td>
                    <td>
                     <button onClick={()=>{dataEdit(key.id,key.data)}}>Edit</button>
@@ -64,9 +61,11 @@ const ToDoApp=()=>{
         <div align="center" style={{marginTop:"20px"}}>
             <h1>ToDoApp</h1>
             Enter Your Task : <input type="text" value={txtval} onChange={(e)=>{setTxtval(e.target.value)}}/>
-
-            <button onClick={()=>{mydis(addTask({id:Date.now(),data:txtval}))}}>Add</button>
-
+          {edBtn?(
+            <button onClick={()=>{mydis(addTask({id:Date.now(),data:txtval,status:false}))}}>Add</button>
+          ):(
+            <button onClick={editSave}>Edit Save</button>
+          )}
         </div>
         <table border="2px" style={{width:"100%",gap:"10px",border:"1px solid black"}}>
             <tr style={{border:"1px solid black"}}>
