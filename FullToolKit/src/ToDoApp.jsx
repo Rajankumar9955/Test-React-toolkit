@@ -1,4 +1,4 @@
-
+import Table from 'react-bootstrap/Table';
 import { useSelector,useDispatch } from "react-redux";
 import { useState } from "react";
 import  {addTask, recDelete,taskComplete,taskUnComplete,editDataSave} from "./CounterSlice"
@@ -72,16 +72,23 @@ const ToDoApp=()=>{
             <button onClick={editSave}>Edit Save</button>
           )}
         </div>
-        <table border="2px" style={{width:"100%",gap:"10px",border:"1px solid black"}}>
-            <tr style={{border:"1px solid black"}}>
-                <th >Sno</th>
-                <th>Work</th>
-                <th>Delete</th>
-                <th>Status</th>
-                <th>Edit</th>
-            </tr>
-            {ans}
-        </table>
+        <div style={{height:"400px", width:"80%",marginLeft:"180px"}}>
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>Sno</th>
+          <th>Your Work</th>
+          <th>Delete</th>
+          <th>status</th>
+          <th>Modify</th>
+        </tr>
+      </thead>
+      {ans}
+      </Table>
+
+
+            
+        </div>
         
         </>
     )

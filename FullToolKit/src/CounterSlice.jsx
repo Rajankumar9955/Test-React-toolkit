@@ -12,6 +12,7 @@ const CouterSlice=createSlice({
     },
 
     reducers:{
+        // increment section start
         increment:(state)=>{state.cnt=state.cnt+10;
         },
 
@@ -24,10 +25,15 @@ const CouterSlice=createSlice({
                 state.cnt=state.cnt-10;
             }
         },
+           // increment section end
+
+        //    ColorChange Start 
         changecolor:(state,action)=>{
            console.log(action.payload)
            state.color=action.payload
         },
+
+        // ToDoApp Start
         addTask:(state,action)=>{
             state.task.push(action.payload)
         },
