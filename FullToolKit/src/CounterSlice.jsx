@@ -4,10 +4,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const CouterSlice=createSlice({
-    name:"mycounter",name:"bgcolor",
+    name:"mycounter",name:"bgcolor",name:"todo",
     initialState:{
          cnt:0,
-         color:"pink"
+         color:"pink",
+         task:[]
     },
 
     reducers:{
@@ -26,10 +27,19 @@ const CouterSlice=createSlice({
         changecolor:(state,action)=>{
            console.log(action.payload)
            state.color=action.payload
+        },
+        addTask:(state,action)=>{
+            state.task.push(action.payload)
+        },
+        recDelete:(state,action)=>{
+           state.task=state.task.filter(item=>item.id!=action.payload)
+        },
+        taskComplete:(state,action)=>{
+            
         }
     }
 
     
 })
 export default CouterSlice.reducer;
-export const {increment,decrement,changecolor}=CouterSlice.actions;
+export const {increment,decrement,changecolor,addTask,recDelete}=CouterSlice.actions;
