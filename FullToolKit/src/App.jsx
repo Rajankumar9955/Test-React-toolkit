@@ -4,7 +4,6 @@ import IncrementDecrement from "./IncrementDecrement";
 import ColorChange from "./ColorChange";
 import ToDoApp from "./ToDoApp";
 
-
 const App=()=>{
   return(
     <>
