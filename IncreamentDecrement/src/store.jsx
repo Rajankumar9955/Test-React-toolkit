@@ -1,6 +1,5 @@
 
 
-
 import { configureStore } from "@reduxjs/toolkit";
 import CntReducer from "./CounterSlice";
 const  store=configureStore({
