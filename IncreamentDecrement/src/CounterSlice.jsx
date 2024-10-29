@@ -9,7 +9,6 @@ const CounterSlice=createSlice({
     reducers:{
         increment:(state)=>{state.cnt=state.cnt+10;
         },
-
         decrement:(state)=>{
             
             if(state.cnt<=-1)
